@@ -83,9 +83,9 @@
             <div class="col-md-6 col-lg-4">
                 <div class="card card-hover">
                     <div class="service-icon mb-4"><i class="fa-solid fa-gears"></i></div>
-                    <h3 class="card-title">API Provider Services</h3>
-                    <p class="card-description">Robust API solutions for payment gateways, banking services, and third-party integrations.</p>
-                    <a href="{{ route('api-provider') }}" class="card-link">
+                    <h3 class="card-title">API Development & Integration Services</h3>
+                    <p class="card-description">Robust API development solutions for payment gateways, banking services, and custom integrations.</p>
+                    <a href="{{ route('api-development') }}" class="card-link">
                         Read More <i class="fa-solid fa-arrow-right small"></i>
                     </a>
                 </div>
@@ -127,7 +127,7 @@
             <div class="col-lg-6">
                 <div class="about-content">
                     <p class="section-about-subtitle mb-2">About Us</p>
-                    <h2 class="section-about-title">We're a Fintech Software Solution Provider</h2>
+                    <h2 class="section-about-title">We're a Fintech Software Development & Integration Expert</h2>
 
                     <p class="section-description">
                         At Finext Solution, we specialize in building secure, scalable, and future-ready software for NBFCs, banks, and fintech startups. From loan management systems to payment gateway integrations — we provide end-to-end digital finance solutions.
@@ -247,7 +247,7 @@
                                     <option value="mobile">Mobile App Development</option>
                                     <option value="web">Custom Web Development</option>
                                     <option value="aeps">AEPS Admin Software</option>
-                                    <option value="api">API Provider Services</option>
+                                    <option value="api">API Development Services</option>
                                 </select>
                             </div>
                             <div class="mb-4">

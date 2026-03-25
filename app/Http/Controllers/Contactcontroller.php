@@ -30,6 +30,7 @@ public function submit(Request $request)
         'phone' => 'required|string|max:20',
         'subject' => 'required|string|max:255',
         'message' => 'required|string|min:10',
+        'consent_communications' => 'accepted',
     ]);
 
     try {

@@ -136,7 +136,7 @@
                         <h6 class="restly-about-stitle"><span>AEPS Solutions</span></h6>
                         <h2 class="restly-about-title">Comprehensive AEPS Admin Software for Digital Payments</h2>
                         <div class="restly-about-dec">
-                            <p>Our AEPS Admin Software empowers fintech companies and retailers to manage Aadhaar-enabled payment services easily. The panel comes with intuitive controls, user role management, commission tracking, and secure AEPS integration via NSDL or other providers.</p>
+                            <p>Our AEPS Admin Software empowers fintech companies and retailers to manage Aadhaar-enabled payment services easily. The panel comes with intuitive controls, user role management, commission tracking, and secure AEPS integration via NSDL or other API integrations.</p>
                             <ul>
                                 <li>White-label AEPS solutions with custom branding</li>
                                 <li>Scalable and secure architecture for high volume transactions</li>

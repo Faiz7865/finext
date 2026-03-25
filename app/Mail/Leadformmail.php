@@ -15,19 +15,15 @@ class LeadFormMail extends Mailable
 
     public $data;
     public $isConfirmation;
+    public $isAdmin;
 
-    /**
-     * Create a new message instance.
-     */
-    public function __construct($data, $isConfirmation = false)
+    public function __construct($data, bool $isConfirmation = false, bool $isAdmin = false)
     {
         $this->data = $data;
         $this->isConfirmation = $isConfirmation;
+        $this->isAdmin = $isAdmin;
     }
 
-    /**
-     * Get the message envelope.
-     */
     public function envelope(): Envelope
     {
         if ($this->isConfirmation) {
@@ -41,9 +37,6 @@ class LeadFormMail extends Mailable
         );
     }
 
-    /**
-     * Get the message content definition.
-     */
     public function content(): Content
     {
         if ($this->isConfirmation) {
@@ -58,21 +51,12 @@ class LeadFormMail extends Mailable
         return new Content(
             view: 'emails.lead-form',
             with: [
-                'first_name' => $this->data['first_name'],
-                'last_name' => $this->data['last_name'],
-                'email' => $this->data['email'],
-                'phone' => $this->data['phone'],
-                'company' => $this->data['company'],
-                'service_type' => $this->data['service_type'],
-                'budget' => $this->data['budget'],
-                'project_description' => $this->data['project_description'],
+                'data' => $this->data,
+                'isAdmin' => $this->isAdmin,
             ],
         );
     }
 
-    /**
-     * Get the attachments for the message.
-     */
     public function attachments(): array
     {
         return [];
