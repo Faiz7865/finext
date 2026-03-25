@@ -53,7 +53,7 @@
                                 <li><i class="fas fa-arrow-right"></i> <a href="{{ route('pancard-admin-software') }}">Pan Card Admin Software</a></li>
                                 <li><i class="fas fa-arrow-right"></i> <a href="{{ route('custom-web-development') }}">Web Development</a></li>
                                 <li><i class="fas fa-arrow-right"></i> <a href="{{ route('mobile-app-development') }}">Mobile Apps</a></li>
-                                <li><i class="fas fa-arrow-right"></i> <a href="{{ route('api-provider') }}">API Solutions</a></li>
+                                <li><i class="fas fa-arrow-right"></i> <a href="{{ route('api-development') }}">API Development & Integration</a></li>
                                 <li><i class="fas fa-arrow-right"></i> <a href="{{ route('aeps-admin-software') }}">AEPS Software</a></li>
                             </ul>
                         </div>
@@ -83,8 +83,9 @@
                             </div>
                             <div class="footer-seven-footer-menu">
                                 <ul>
-                                    <li><a href="#">Terms & Condition</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="{{ route('terms') }}">Terms & Condition</a></li>
+                                    <li><a href="{{ route('privacy') }}">Privacy Policy</a></li>
+                                    <li><a href="{{ route('refund') }}">Refund Policy</a></li>
                                 </ul>
                             </div>
                         </div>

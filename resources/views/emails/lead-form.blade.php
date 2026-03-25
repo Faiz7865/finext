@@ -1,83 +1,100 @@
+{{-- resources/views/emails/lead-form.blade.php --}}
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>New Lead Received</title>
+    <meta charset="utf-8">
+    <title>New Lead</title>
+    <style>
+        body { 
+            font-family: 'Nunito', Arial, sans-serif; 
+            background: #f3f4f6; 
+            padding: 20px; 
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background: white; 
+            border-radius: 12px; 
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .header { 
+            background: #104cba; 
+            color: white; 
+            padding: 30px; 
+        }
+        .header h2 { margin: 0; font-size: 24px; }
+        .content { padding: 30px; }
+        .field { 
+            margin-bottom: 20px; 
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .field:last-child { border-bottom: none; }
+        .label { 
+            font-weight: 700; 
+            color: #104cba; 
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .value { 
+            color: #1d2c38; 
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .description {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+    </style>
 </head>
-<body style="margin:0;padding:0;background:#f4f6f8;font-family:Arial, Helvetica, sans-serif;">
-
-<table width="100%" cellpadding="0" cellspacing="0">
-<tr>
-<td align="center" style="padding:30px 15px;">
-
-<table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;">
-
-    <!-- Header -->
-    <tr>
-        <td style="background:#0d6efd;color:#ffffff;padding:20px;text-align:center;">
-            <h2 style="margin:0;">🚀 New Project Lead</h2>
-        </td>
-    </tr>
-
-    <!-- Body -->
-    <tr>
-        <td style="padding:25px;color:#333;">
-
-            <p><strong>New lead received from website:</strong></p>
-
-            <table width="100%" cellpadding="8" cellspacing="0" style="border-collapse:collapse;">
-                <tr>
-                    <td style="font-weight:bold;width:160px;">First Name</td>
-                    <td>{{ $first_name }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight:bold;">Last Name</td>
-                    <td>{{ $last_name }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight:bold;">Email</td>
-                    <td>{{ $email }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight:bold;">Phone</td>
-                    <td>{{ $phone }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight:bold;">Company</td>
-                    <td>{{ $company }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight:bold;">Service Type</td>
-                    <td>{{ $service_type }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight:bold;">Budget</td>
-                    <td>{{ $budget }}</td>
-                </tr>
-            </table>
-
-            <hr style="margin:20px 0;">
-
-            <p style="font-weight:bold;">Project Description</p>
-            <p style="background:#f8f9fa;padding:15px;border-radius:5px;">
-                {{ $project_description }}
-            </p>
-
-        </td>
-    </tr>
-
-    <!-- Footer -->
-    <tr>
-        <td style="background:#f1f1f1;padding:15px;text-align:center;font-size:13px;color:#666;">
-            © {{ date('Y') }} Finext Solution | Lead Notification
-        </td>
-    </tr>
-
-</table>
-
-</td>
-</tr>
-</table>
-
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>New Lead Submission</h2>
+            <p style="margin: 8px 0 0 0; opacity: 0.9;">Received on {{ now()->format('F d, Y at h:i A') }}</p>
+        </div>
+        
+        <div class="content">
+            <div class="field">
+                <div class="label">Full Name</div>
+                <div class="value">{{ $data['first_name'] }} {{ $data['last_name'] }}</div>
+            </div>
+            
+            <div class="field">
+                <div class="label">Email Address</div>
+                <div class="value">{{ $data['email'] }}</div>
+            </div>
+            
+            <div class="field">
+                <div class="label">Phone Number</div>
+                <div class="value">{{ $data['phone'] }}</div>
+            </div>
+            
+            <div class="field">
+                <div class="label">Company</div>
+                <div class="value">{{ $data['company'] }}</div>
+            </div>
+            
+            <div class="field">
+                <div class="label">Service Type</div>
+                <div class="value">{{ str_replace('-', ' ', ucfirst($data['service_type'])) }}</div>
+            </div>
+            
+            <div class="field">
+                <div class="label">Budget Range</div>
+                <div class="value">{{ $data['budget'] }}</div>
+            </div>
+            
+            <div class="field">
+                <div class="label">Project Description</div>
+                <div class="description">{{ $data['project_description'] }}</div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -77,7 +77,7 @@
                                         <a href="{{ route('ecommerce-software') }}">E-Commerce Software</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="{{ route('api-provider') }}">API Provider</a>
+                                        <a href="{{ route('api-development') }}">API Development & Integration</a>
                                     </li>
                                     <li class="menu-item">
                                         <a href="{{ route('custom-web-development') }}">Custom Web Development</a>
@@ -123,7 +123,7 @@
                                             <a href="{{ route('ecommerce-software') }}" class="nav-link text-white">E-Commerce Software</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ route('api-provider') }}" class="nav-link text-white">API Provider</a>
+                                            <a href="{{ route('api-development') }}" class="nav-link text-white">API Development & Integration</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{ route('custom-web-development') }}" class="nav-link text-white">Custom Web Development</a>

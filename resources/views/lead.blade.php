@@ -174,14 +174,13 @@
                                 </div>
                                 <div class="col-12">
                                     <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 20px;">
-                                        <input type="checkbox" name="agree_terms" id="agree_terms"
-                                            {{ old('agree_terms') ? 'checked' : '' }} required style="margin-top: 5px;">
-                                        <label for="agree_terms" style="font-size: 12px; color: #666; margin: 0;">
-                                            I consent to receiving RCS, WhatsApp, Email, or SMS from Finext Solution & I
-                                            have reviewed and agreed to Terms & Conditions and Privacy Policy.
+                                        <input type="checkbox" name="consent_communications" id="consent_communications"
+                                            {{ old('consent_communications') ? 'checked' : '' }} required style="margin-top: 5px;">
+                                        <label for="consent_communications" style="font-size: 12px; color: #666; margin: 0;">
+                                            I consent to receiving RCS, WhatsApp, Email, or SMS from Finextsolution.com & I have reviewed and agreed to Terms & Conditions and Privacy Policy
                                         </label>
                                     </div>
-                                    @error('agree_terms')
+                                    @error('consent_communications')
                                         <span class="text-danger"
                                             style="font-size: 12px; display: block; margin-bottom: 10px;">{{ $message }}</span>
                                     @enderror

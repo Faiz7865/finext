@@ -1,0 +1,419 @@
+/* Auth Split Screen Design - Finext Solution */
+
+:root {
+    --primary: #104cba;
+    --navy-dark: #0a1121;
+    --text-black: #1d2c38;
+    --text-muted: #74787c;
+    --bg-light: #e5eef6;
+    --primary-foreground: #ffffff;
+    --secondary: #1d2c38;
+    --background: #ffffff;
+    --text-white: #fff;
+    --foreground: #1d2c38;
+    --muted: #F8FAFC;
+    --muted-foreground: #64748B;
+    --border: #E2E8F0;
+    --input-bg: #f0f4f9;
+    --bg-card: #EFF2F8;
+    --accent-gradient: linear-gradient(135deg, #104cba 0%, #1d4ed8 50%, #0a1121 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    color: var(--foreground);
+    overflow-x: hidden;
+}
+
+/* Split Container */
+.auth-split-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Left Side - Branding */
+.auth-branding {
+    flex: 1;
+    background: var(--accent-gradient);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-branding::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.3;
+}
+
+.branding-content {
+    position: relative;
+    z-index: 1;
+    max-width: 500px;
+    text-align: center;
+    color: var(--text-white);
+}
+
+.brand-logo-large img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.brand-logo-large {
+    width: 250px;
+    height: 80px;
+    padding: 8px;
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0 auto 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.branding-content h1 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.branding-content p {
+    font-size: 18px;
+    opacity: 0.9;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.feature-list {
+    text-align: left;
+    display: inline-block;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.feature-item i {
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+/* Right Side - Form */
+.auth-form-section {
+    flex: 1;
+    background: var(--background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    overflow-y: auto;
+}
+
+.auth-form-wrapper {
+    width: 100%;
+    max-width: 440px;
+}
+
+.form-header {
+    margin-bottom: 40px;
+}
+
+.form-header h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text-black);
+    margin-bottom: 8px;
+}
+
+.form-header p {
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-black);
+    font-size: 14px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.form-control {
+    width: 100%;
+    height: 56px;
+    padding: 0 16px 0 50px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    font-size: 15px;
+    font-family: inherit;
+    background: var(--background);
+    color: var(--text-black);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(16, 76, 186, 0.1);
+}
+
+.form-control:focus + .input-icon,
+.input-wrapper:focus-within .input-icon {
+    color: var(--primary);
+}
+
+.form-control.is-invalid {
+    border-color: #ef4444;
+    background: #fef2f2;
+}
+
+.invalid-feedback {
+    color: #dc2626;
+    font-size: 13px;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Checkbox */
+.form-check-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.form-check-input {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    appearance: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.form-check-input:checked {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.form-check-input:checked::after {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-check-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.forgot-link {
+    font-size: 14px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.forgot-link:hover {
+    color: #0d3d9e;
+}
+
+/* Button */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--text-white);
+    box-shadow: 0 4px 14px rgba(16, 76, 186, 0.4);
+}
+
+.btn-primary:hover {
+    background: #0d3d9e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 76, 186, 0.5);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/* Alert */
+.alert {
+    padding: 16px 20px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.alert-danger {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+
+.alert i {
+    font-size: 18px;
+}
+
+/* Footer */
+.form-footer {
+    margin-top: 32px;
+    text-align: center;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+}
+
+.form-footer p {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* Back to Home */
+.back-home {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .auth-split-container {
+        flex-direction: column;
+    }
+    
+    .auth-branding {
+        padding: 40px 30px;
+        min-height: auto;
+    }
+    
+    .brand-logo-large {
+        width: 80px;
+        height: 80px;
+        font-size: 36px;
+        margin-bottom: 24px;
+    }
+    
+    .branding-content h1 {
+        font-size: 28px;
+    }
+    
+    .branding-content p {
+        font-size: 16px;
+        margin-bottom: 24px;
+    }
+    
+    .feature-list {
+        display: none;
+    }
+    
+    .auth-form-section {
+        padding: 40px 30px;
+    }
+    
+    .back-home {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin-bottom: 20px;
+    }
+}
